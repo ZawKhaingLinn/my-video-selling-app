@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // NEW: Serve index.html for the root path
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html')); // Use path.resolve
 });
 
 // --- Database ချိတ်ဆက်ခြင်း ---
