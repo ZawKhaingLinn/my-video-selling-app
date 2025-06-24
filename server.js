@@ -18,6 +18,11 @@ app.use(express.json());
 // 'public' directory ထဲက static files (HTML, CSS, JS) တွေကို serve လုပ်ဖို့
 app.use(express.static(path.join(__dirname, 'public')));
 
+// NEW: Serve index.html for the root path
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // --- Database ချိတ်ဆက်ခြင်း ---
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected successfully')) // ချိတ်ဆက်မှု အောင်မြင်ရင် message ပြ
