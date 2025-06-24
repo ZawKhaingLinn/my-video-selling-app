@@ -16,11 +16,11 @@ const PORT = process.env.PORT || 5000; // Server port ကို .env ကနေ�
 // JSON format နဲ့ ရောက်လာတဲ့ request body ကို parse လုပ်နိုင်ဖို့
 app.use(express.json());
 // 'public' directory ထဲက static files (HTML, CSS, JS) တွေကို serve လုပ်ဖို့
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Public')));
 
 // NEW: Serve index.html for the root path
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'public', 'index.html')); // Use path.resolve
+    res.sendFile(path.resolve(__dirname, 'Public', 'index.html')); // Use path.resolve
 });
 
 // --- Database ချိတ်ဆက်ခြင်း ---
