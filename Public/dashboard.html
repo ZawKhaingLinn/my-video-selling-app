@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="welcomeMessage">Welcome, User!</h1>
+            <button id="logoutButton" class="dashboard-button logout-button">Logout</button>
+        </header>
+
+        <nav class="dashboard-nav">
+            <ul>
+                <li class="nav-item active" data-section="overview-section">Overview</li>
+                <li class="nav-item" data-section="my-videos-section">My Videos</li>
+                <li class="nav-item" data-section="upload-section">Upload Content</li>
+                </ul>
+        </nav>
+
+        <main class="dashboard-content">
+            <section id="overview-section" class="content-section active">
+                <h3>Dashboard Overview</h3>
+                <p>Here you can see a summary of your activities.</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Total Videos</h4>
+                        <p>0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Total Sales</h4>
+                        <p>$0.00</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Pending Reviews</h4>
+                        <p>0</p>
+                    </div>
+                </div>
+                <p>This is a protected page. You can only access this if you are logged in.</p>
+            </section>
+
+            <section id="my-videos-section" class="content-section">
+                <h3>My Uploaded Videos/Links</h3>
+                <p>Manage your video content here.</p>
+                <div class="video-list">
+                    <p>No videos uploaded yet. Go to "Upload Content" to add your first video!</p>
+                    </div>
+            </section>
+
+            <section id="upload-section" class="content-section">
+                <h3>Upload New Content</h3>
+                <p>Use the form below to upload your video files or add links.</p>
+                <form id="uploadForm" class="upload-form">
+                    <div class="form-group">
+                        <label for="contentTitle">Title:</label>
+                        <input type="text" id="contentTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contentType">Content Type:</label>
+                        <select id="contentType">
+                            <option value="video">Video File</option>
+                            <option value="link">External Link</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="videoFileInputGroup">
+                        <label for="videoFile">Video File:</label>
+                        <input type="file" id="videoFile" accept="video/*">
+                    </div>
+                    <div class="form-group" id="externalLinkInputGroup" style="display:none;">
+                        <label for="externalLink">External Link URL:</label>
+                        <input type="url" id="externalLink" placeholder="https://example.com/my-video">
+                    </div>
+                    <div class="form-group">
+                        <label for="contentPrice">Price ($):</label>
+                        <input type="number" id="contentPrice" min="0" step="0.01" value="0.00" required>
+                    </div>
+                    <button type="submit" class="dashboard-button upload-button">Upload Content</button>
+                </form>
+                <div id="uploadMessage" class="message"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
